@@ -17,7 +17,7 @@ _anthropic = AsyncAnthropic(api_key=settings.ANTHROPIC_API_KEY)
 _qdrant    = AsyncQdrantClient(
     host=settings.QDRANT_HOST,
     port=settings.QDRANT_PORT,
-    api_key=settings.QDRANT_API_KEY,
+    api_key=settings.QDRANT_API_KEY or None,
 )
 COLLECTION = settings.QDRANT_COLLECTION
 DIMS       = settings.EMBEDDING_DIMENSIONS

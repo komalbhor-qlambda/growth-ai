@@ -52,7 +52,7 @@ app.add_middleware(
 )
 
 if settings.is_production:
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=["yourdomain.com", "*.yourdomain.com"])
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.allowed_hosts_list)
 
 
 @app.middleware("http")

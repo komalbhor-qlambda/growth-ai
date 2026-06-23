@@ -24,7 +24,6 @@ services:
       - CELERY_RESULT_BACKEND=redis://redis:6379/2
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
-      - ALLOWED_ORIGINS=http://localhost,http://localhost:80
     depends_on:
       postgres:
         condition: service_healthy
@@ -48,6 +47,8 @@ services:
       - api
       - redis
     command: celery -A app.workers.celery_app worker --loglevel=info --concurrency=4
+    healthcheck:
+      disable: true
     restart: unless-stopped
 
   # ── PostgreSQL ──────────────────────────────────────────────────
