@@ -67,6 +67,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
 
   # ── Redis ───────────────────────────────────────────────────────
   redis:
@@ -80,6 +81,7 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+    restart: unless-stopped
 
   # ── Qdrant (Vector DB) ──────────────────────────────────────────
   qdrant:
@@ -88,6 +90,7 @@ services:
       - "6333:6333"
     volumes:
       - qdrant_data:/qdrant/storage
+    restart: unless-stopped
 
 volumes:
   postgres_data:
