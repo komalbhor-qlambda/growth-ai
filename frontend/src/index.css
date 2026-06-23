@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { height: 100%; background: #0b0d14; color: #dde3f0; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e2538; border-radius: 99px; }
+  input, textarea, select, button { font-family: inherit; }
+}
+
+@layer components {
+  .card       { @apply bg-[#151a27] border border-[#1e2538] rounded-2xl transition-all duration-150; }
+  .card-hover:hover { @apply border-[#252d42] bg-[#1a2030]; }
+  .btn        { @apply font-semibold rounded-lg cursor-pointer transition-all duration-150 active:scale-95; }
+  .btn-primary { @apply btn bg-accent text-bg hover:opacity-90 border-none; }
+  .btn-ghost  { @apply btn bg-transparent text-muted border border-[#1e2538] hover:border-[#252d42] hover:text-[#dde3f0]; }
+  .btn-danger { @apply btn bg-red/10 text-red border border-red/30 hover:bg-red/20; }
+  .btn-success{ @apply btn bg-green/10 text-green border border-green/30; }
+  .btn-accent { @apply btn bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20; }
+  .input      { @apply w-full bg-[#1e2538] border border-[#252d42] rounded-lg px-3 py-2 text-[#dde3f0] text-sm focus:outline-none focus:border-accent transition-colors; }
+  .label      { @apply block text-xs text-muted mb-1.5 font-medium; }
+  .badge      { @apply text-[11px] font-semibold px-2.5 py-0.5 rounded-full whitespace-nowrap; }
+  .nav-item   { @apply flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer text-sm transition-all duration-150 text-muted hover:bg-accent/10 hover:text-accent; }
+  .nav-item.active { @apply bg-accent/10 text-accent border border-accent/30 font-semibold; }
+  .section-title { @apply text-[11px] font-semibold text-dim tracking-widest uppercase; }
+  .page-title { @apply text-xl font-bold text-[#dde3f0]; }
+  .page-sub   { @apply text-sm text-muted mt-1; }
+  .table-head { @apply grid px-5 py-3 border-b border-[#1e2538] bg-bg/50; }
+  .table-row  { @apply grid px-5 py-3.5 items-center border-b border-[#1e2538] last:border-0 hover:bg-white/[0.02] transition-colors cursor-pointer; }
+  .skeleton   { @apply bg-[#1e2538] rounded animate-pulse; }
+  .divider    { @apply h-px bg-[#1e2538] my-4; }
+}
